@@ -84,4 +84,12 @@ export class PokemonService {
     }
     throw new InternalServerErrorException(`Can't create Pokemon - Check server logs`);
   }
+
+  async removeAll() {
+    await this.pokemonModel.deleteMany({});
+  }
+
+  async insertMany(createPokemonDto: CreatePokemonDto[]){
+    await this.pokemonModel.insertMany(createPokemonDto);
+  }
 }
